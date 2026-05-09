@@ -29,6 +29,19 @@ class TestVendingMachine(unittest.TestCase):
         with self.assertRaises(ValueError):
             machine.purchase("1")
 
+    def test_purchase_with_invalid_drink_code_raises_error(self):
+        machine = VendingMachine()
+        machine.insert_coin(1000)
+        with self.assertRaises(ValueError):
+            machine.purchase("999")
+
+    def test_purchase_with_no_stock_raises_error(self):
+        machine = VendingMachine()
+        machine.drinks["1"]["stock"] = 0
+        machine.insert_coin(1000)
+        with self.assertRaises(ValueError):
+            machine.purchase("1")
+
     def test_refund_resets_balance(self):
         machine = VendingMachine()
         machine.insert_coin(1000)
