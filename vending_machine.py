@@ -54,14 +54,14 @@ def run_cli():
                 machine.insert_coin(amount)
                 print(f"{amount}원이 투입되었습니다.")
             except ValueError as error:
-                print(error)
+                print(f"오류: {error}")
         elif choice == "2":
             drink_code = input("구매할 음료 번호 입력: ").strip()
             try:
                 drink_name = machine.purchase(drink_code)
                 print(f"{drink_name}가 나왔습니다.")
             except ValueError as error:
-                print(error)
+                print(f"오류: {error}")
         elif choice == "3":
             refund_amount = machine.refund()
             print(f"거스름돈 {refund_amount}원을 반환합니다.")

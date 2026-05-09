@@ -3,7 +3,7 @@ import unittest
 from vending_machine import VendingMachine
 
 
-class VendingMachineTest(unittest.TestCase):
+class TestVendingMachine(unittest.TestCase):
     def test_insert_coin_increases_balance(self):
         machine = VendingMachine()
         machine.insert_coin(500)
